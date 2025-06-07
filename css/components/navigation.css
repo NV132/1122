@@ -1,0 +1,158 @@
+/* 네비게이션 바 컨테이너 */
+.nav-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-container.hidden {
+    transform: translateY(100%);
+}
+
+/* 네비게이션 아이템 리스트 */
+.nav-list {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0.75rem 0;
+    margin: 0;
+    list-style: none;
+}
+
+/* 네비게이션 아이템 */
+.nav-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem;
+    color: #666;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* 네비게이션 아이콘 */
+.nav-icon {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 0.25rem;
+    transition: all 0.3s ease;
+}
+
+/* 네비게이션 텍스트 */
+.nav-text {
+    font-size: 0.75rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+/* 활성 상태 스타일 */
+.nav-item.active {
+    color: #3498db;
+}
+
+.nav-item.active .nav-icon {
+    transform: translateY(-2px);
+}
+
+.nav-item.active .nav-text {
+    transform: scale(1.1);
+}
+
+/* 호버 효과 */
+.nav-item:hover {
+    color: #3498db;
+}
+
+.nav-item:hover .nav-icon {
+    transform: translateY(-2px);
+}
+
+/* 클릭 효과 */
+.nav-item:active .nav-icon {
+    transform: scale(0.9);
+}
+
+/* 배지 스타일 */
+.nav-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 4px;
+    background-color: #e74c3c;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-badge.visible {
+    transform: scale(1);
+}
+
+/* 스크롤 감지 애니메이션 */
+.nav-container.scroll-up {
+    transform: translateY(0);
+}
+
+.nav-container.scroll-down {
+    transform: translateY(100%);
+}
+
+/* 모바일 최적화 */
+@media (max-width: 768px) {
+    .nav-container {
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+    
+    .nav-list {
+        padding: 0.5rem 0;
+    }
+    
+    .nav-item {
+        padding: 0.25rem;
+    }
+    
+    .nav-icon {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .nav-text {
+        font-size: 0.7rem;
+    }
+}
+
+/* 다크 모드 지원 */
+@media (prefers-color-scheme: dark) {
+    .nav-container {
+        background-color: #1a1a1a;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    .nav-item {
+        color: #999;
+    }
+    
+    .nav-item.active,
+    .nav-item:hover {
+        color: #3498db;
+    }
+    
+    .nav-badge {
+        background-color: #e74c3c;
+    }
+} 

@@ -1,0 +1,481 @@
+/* AIMQOD 보험상담 챗봇 완성형 CSS */
+
+/* 토글 버튼 */
+.chatbot-toggle {
+    position: fixed;
+    bottom: 110px;
+    right: 30px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2196F3, #1976D2);
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.chatbot-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.chatbot-toggle i {
+    color: white;
+    font-size: 24px;
+}
+
+/* 챗봇 컨테이너 */
+.chatbot-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* 슬라이드 애니메이션 */
+.slide-in {
+    animation: slideIn 0.3s ease forwards;
+}
+
+.slide-out {
+    animation: slideOut 0.3s ease forwards;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+}
+
+@keyframes slideOut {
+    from { transform: translateX(0); }
+    to { transform: translateX(100%); }
+}
+
+/* 헤더 */
+.chatbot-header {
+    background: linear-gradient(135deg, #2196F3, #1976D2);
+    color: white;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    height: 50px;
+}
+
+.chatbot-title h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.chatbot-title p {
+    margin: 5px 0 0;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.chatbot-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px;
+    transition: transform 0.2s ease;
+}
+
+.chatbot-close:hover {
+    transform: scale(1.1);
+}
+
+/* 메시지 영역 */
+.messages-container {
+    flex: 1;
+    padding: 15px;
+    padding-bottom: 110px;
+    overflow-y: auto;
+    background: #f5f7fa;
+    -webkit-overflow-scrolling: touch;
+    height: calc(100% - 50px);
+}
+
+.message-bubble {
+    max-width: 80%;
+    margin-bottom: 15px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.user-message {
+    background: #2196F3;
+    color: white;
+    margin-left: auto;
+    border-bottom-right-radius: 4px;
+}
+
+.bot-message {
+    background: white;
+    color: #333;
+    margin-right: auto;
+    border-bottom-left-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* 퀵 폼 (하단 탭) */
+.quick-form {
+    position: fixed;
+    bottom: 45px;
+    left: 0;
+    width: 100%;
+    padding: 10px 15px;
+    background: white;
+    border-top: 1px solid #eee;
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+    z-index: 2;
+    height: 45px;
+}
+
+.quick-form::-webkit-scrollbar {
+    display: none;
+}
+
+.quick-form-btn {
+    flex: 0 0 auto;
+    padding: 12px 20px;
+    background: #f5f7fa;
+    border: none;
+    border-radius: 8px;
+    color: #333;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.quick-form-btn:hover {
+    background: #e3f2fd;
+    transform: translateY(-2px);
+}
+
+.quick-form-btn i {
+    color: #2196F3;
+    font-size: 1.2rem;
+}
+
+/* 입력 영역 */
+.chatbot-input {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 15px;
+    background: white;
+    border-top: 1px solid #eee;
+    display: flex;
+    gap: 8px;
+    z-index: 2;
+    height: 45px;
+}
+
+.chatbot-input input {
+    flex: 1;
+    padding: 12px 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+}
+
+.chatbot-input input:focus {
+    outline: none;
+    border-color: #2196F3;
+}
+
+.send-btn {
+    background: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0 20px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.send-btn:hover {
+    background: #1976D2;
+}
+
+/* 탭 섹션 (카드/리스트) */
+.tab-sections {
+    display: grid;
+    gap: 15px;
+    padding: 10px;
+}
+
+.tab-section {
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.tab-section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.section-icon {
+    width: 40px;
+    height: 40px;
+    background: #e3f2fd;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-icon i {
+    color: #2196F3;
+    font-size: 1.2rem;
+}
+
+.section-content {
+    flex: 1;
+}
+
+.section-content h5 {
+    margin: 0;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.section-content p {
+    margin: 5px 0 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.section-arrow {
+    color: #2196F3;
+    font-size: 1.2rem;
+}
+
+/* 상세 내용 */
+.detail-content {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.detail-content h4 {
+    margin: 0 0 10px;
+    color: #333;
+    font-size: 1.2rem;
+}
+
+.detail-content p {
+    margin: 0 0 15px;
+    color: #666;
+}
+
+.detail-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px;
+}
+
+.detail-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    color: #333;
+}
+
+.detail-list li i {
+    color: #2196F3;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.action-button {
+    background: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.action-button:hover {
+    background: #1976D2;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .chatbot-toggle {
+        width: 40px;
+        height: 40px;
+        right: 15px;
+        bottom: 80px;
+    }
+
+    .chatbot-container {
+        height: 100%;
+    }
+
+    .chatbot-header {
+        height: 50px;
+        padding: 10px 15px;
+    }
+
+    .chatbot-header h3 {
+        font-size: 16px;
+    }
+
+    .messages-container {
+        height: calc(100% - 50px);
+        padding: 10px;
+        padding-bottom: 100px;
+    }
+
+    .message {
+        max-width: 85%;
+        margin-bottom: 10px;
+        padding: 8px 12px;
+    }
+
+    .message.user {
+        margin-left: auto;
+    }
+
+    .message.bot {
+        margin-right: auto;
+    }
+
+    .quick-form {
+        position: fixed;
+        bottom: 50px;
+        left: 0;
+        right: 0;
+        height: 45px;
+        padding: 8px 12px;
+        background: #fff;
+        border-top: 1px solid #e0e0e0;
+        z-index: 2;
+    }
+
+    .quick-form button {
+        padding: 6px 12px;
+        font-size: 12px;
+        margin-right: 8px;
+    }
+
+    .chatbot-input {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 50px;
+        padding: 8px 12px;
+        background: #fff;
+        border-top: 1px solid #e0e0e0;
+        z-index: 2;
+    }
+
+    .chatbot-input input {
+        height: 34px;
+        font-size: 14px;
+    }
+
+    .chatbot-input button {
+        width: 34px;
+        height: 34px;
+    }
+
+    .tab-sections {
+        padding: 10px;
+    }
+
+    .tab-section {
+        padding: 12px;
+        margin-bottom: 8px;
+    }
+
+    .section-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+    }
+
+    .section-content h5 {
+        font-size: 14px;
+    }
+
+    .section-content p {
+        font-size: 12px;
+    }
+
+    .section-arrow {
+        font-size: 12px;
+    }
+
+    .detail-content {
+        padding: 12px;
+    }
+
+    .detail-content h4 {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    .detail-list {
+        margin: 8px 0;
+    }
+
+    .detail-list li {
+        font-size: 13px;
+        margin-bottom: 6px;
+    }
+
+    .action-button {
+        padding: 8px 16px;
+        font-size: 13px;
+    }
+} 

@@ -1,0 +1,296 @@
+/* Main Styles */
+:root {
+    /* 기본 폰트 설정 */
+    --font-family: 'Noto Sans KR', sans-serif;
+    
+    /* 라이트 모드 테마 */
+    --theme-primary: #007bff;
+    --theme-secondary: #6c757d;
+    --theme-success: #28a745;
+    --theme-danger: #dc3545;
+    --theme-warning: #ffc107;
+    --theme-info: #17a2b8;
+    
+    --theme-background: #ffffff;
+    --theme-surface: #f8f9fa;
+    --theme-border: #dee2e6;
+    
+    --theme-text-primary: #212529;
+    --theme-text-secondary: #6c757d;
+    --theme-text-muted: #adb5bd;
+    
+    /* 간격 */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    
+    /* 그림자 */
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+    --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+    
+    /* 애니메이션 */
+    --transition-fast: 150ms ease;
+    --transition-normal: 300ms ease;
+    --transition-slow: 500ms ease;
+    
+    /* 반응형 브레이크포인트 */
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+}
+
+/* 다크 모드 테마 */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --theme-background: #1a1a1a;
+        --theme-surface: #2d2d2d;
+        --theme-border: #404040;
+        
+        --theme-text-primary: #ffffff;
+        --theme-text-secondary: #b3b3b3;
+        --theme-text-muted: #808080;
+        
+        --shadow-sm: 0 2px 4px rgba(0,0,0,0.2);
+        --shadow-md: 0 4px 6px rgba(0,0,0,0.3);
+        --shadow-lg: 0 10px 15px rgba(0,0,0,0.3);
+    }
+}
+
+/* 기본 리셋 */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.5;
+    color: var(--theme-text-primary);
+    background-color: var(--theme-background);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* 기본 타이포그래피 */
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: var(--spacing-md);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+p {
+    margin-bottom: var(--spacing-md);
+}
+
+a {
+    color: var(--theme-primary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+a:hover {
+    color: var(--theme-secondary);
+}
+
+/* 기본 버튼 스타일 */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border: none;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.btn-primary {
+    background-color: var(--theme-primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--theme-secondary);
+}
+
+/* 컨테이너 */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+/* 섹션 */
+.section {
+    padding: var(--spacing-xl) 0;
+}
+
+/* 유틸리티 클래스 */
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-left { text-align: left; }
+
+.mt-1 { margin-top: var(--spacing-xs); }
+.mt-2 { margin-top: var(--spacing-sm); }
+.mt-3 { margin-top: var(--spacing-md); }
+.mt-4 { margin-top: var(--spacing-lg); }
+.mt-5 { margin-top: var(--spacing-xl); }
+
+.mb-1 { margin-bottom: var(--spacing-xs); }
+.mb-2 { margin-bottom: var(--spacing-sm); }
+.mb-3 { margin-bottom: var(--spacing-md); }
+.mb-4 { margin-bottom: var(--spacing-lg); }
+.mb-5 { margin-bottom: var(--spacing-xl); }
+
+/* 반응형 이미지 */
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+/* 접근성 */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* 다크 모드 토글 버튼 */
+.theme-toggle {
+    position: fixed;
+    bottom: var(--spacing-lg);
+    right: var(--spacing-lg);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--theme-surface);
+    border: 1px solid var(--theme-border);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    z-index: 1000;
+}
+
+.theme-toggle i {
+    color: var(--theme-text-primary);
+    font-size: 1.2rem;
+}
+
+/* 스크롤바 스타일링 */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--theme-surface);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--theme-secondary);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--theme-primary);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    #main-content {
+        padding: 1rem;
+    }
+}
+
+/* 로고 스타일 */
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--theme-primary);
+    text-decoration: none;
+    padding: var(--spacing-sm);
+    transition: color var(--transition-fast);
+}
+
+.logo-text:hover {
+    color: var(--theme-secondary);
+}
+
+/* 스플래시 스크린 로고 */
+.splash-content .logo-text {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+}
+
+/* 스플래시 스크린 */
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--theme-background);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity var(--transition-normal), visibility var(--transition-normal);
+}
+
+.splash-screen.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.splash-content {
+    text-align: center;
+    transform: translateY(0);
+    transition: transform var(--transition-normal);
+}
+
+.splash-screen.fade-out .splash-content {
+    transform: translateY(-20px);
+}
+
+.splash-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid var(--theme-border);
+    border-top-color: var(--theme-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: var(--spacing-lg) auto;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+} 

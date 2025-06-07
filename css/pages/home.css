@@ -1,0 +1,242 @@
+/* 홈 페이지 스타일 */
+.page-content {
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: calc(100vh - 60px); /* 하단 탭 높이 제외 */
+}
+
+/* 히어로 섹션 */
+.hero-section {
+    text-align: center;
+    padding: 3rem 1rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.hero-description {
+    font-size: 1.2rem;
+    color: #6c757d;
+    margin-bottom: 2rem;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* 버튼 스타일 */
+.primary-button {
+    background-color: #007bff;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.primary-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.secondary-button {
+    background-color: white;
+    color: #007bff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 500;
+    border: 2px solid #007bff;
+    transition: all 0.3s ease;
+}
+
+.secondary-button:hover {
+    background-color: #f8f9fa;
+    transform: translateY(-2px);
+}
+
+/* 특징 섹션 */
+.features-section {
+    padding: 3rem 1rem;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.feature-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    color: #007bff;
+    margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.feature-card p {
+    color: #6c757d;
+    line-height: 1.5;
+}
+
+/* 보험 상품 섹션 */
+.insurance-types {
+    padding: 3rem 1rem;
+    background-color: #f8f9fa;
+    border-radius: 1rem;
+    margin: 2rem 0;
+}
+
+.insurance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.insurance-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.insurance-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.insurance-card .feature-icon {
+    font-size: 2.5rem;
+    color: #007bff;
+    margin-bottom: 1rem;
+}
+
+.insurance-card h3 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.insurance-card p {
+    color: #6c757d;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+}
+
+.card-link {
+    display: inline-block;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border: 1px solid #007bff;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.card-link:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+/* CTA 섹션 */
+.cta-section {
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    padding: 3rem 1rem;
+    border-radius: 1rem;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.cta-content {
+    color: white;
+}
+
+.cta-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.cta-content p {
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.cta-content .primary-button {
+    background-color: white;
+    color: #007bff;
+}
+
+.cta-content .primary-button:hover {
+    background-color: #f8f9fa;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-description {
+        font-size: 1.1rem;
+    }
+
+    .features-grid,
+    .insurance-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .hero-actions a {
+        width: 100%;
+        text-align: center;
+    }
+
+    .insurance-card {
+        margin-bottom: 1rem;
+    }
+} 

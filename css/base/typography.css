@@ -1,0 +1,363 @@
+/* 기본 타이포그래피 */
+html {
+    font-family: var(--font-family-base);
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+body {
+    color: var(--theme-text);
+    font-size: var(--text-base);
+    font-weight: var(--font-normal);
+    line-height: 1.5;
+}
+
+/* 제목 */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-heading);
+    font-weight: var(--font-bold);
+    line-height: 1.2;
+    margin-bottom: var(--space-4);
+    color: var(--theme-text);
+}
+
+h1 {
+    font-size: var(--text-5xl);
+    margin-bottom: var(--space-6);
+}
+
+h2 {
+    font-size: var(--text-4xl);
+    margin-bottom: var(--space-5);
+}
+
+h3 {
+    font-size: var(--text-3xl);
+    margin-bottom: var(--space-4);
+}
+
+h4 {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-4);
+}
+
+h5 {
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-3);
+}
+
+h6 {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-3);
+}
+
+/* 단락 */
+p {
+    margin-bottom: var(--space-4);
+}
+
+/* 링크 */
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+a:hover {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
+}
+
+/* 목록 */
+ul, ol {
+    margin-bottom: var(--space-4);
+    padding-left: var(--space-6);
+}
+
+li {
+    margin-bottom: var(--space-2);
+}
+
+/* 인용구 */
+blockquote {
+    margin: var(--space-6) 0;
+    padding: var(--space-4) var(--space-6);
+    border-left: 4px solid var(--color-primary);
+    background-color: var(--color-gray-50);
+    font-style: italic;
+}
+
+blockquote p {
+    margin-bottom: 0;
+}
+
+/* 코드 */
+code {
+    font-family: var(--font-family-mono);
+    font-size: 0.9em;
+    padding: 0.2em 0.4em;
+    background-color: var(--color-gray-100);
+    border-radius: var(--radius-sm);
+}
+
+pre {
+    font-family: var(--font-family-mono);
+    font-size: 0.9em;
+    padding: var(--space-4);
+    background-color: var(--color-gray-100);
+    border-radius: var(--radius-md);
+    overflow-x: auto;
+    margin-bottom: var(--space-4);
+}
+
+pre code {
+    padding: 0;
+    background-color: transparent;
+}
+
+/* 작은 텍스트 */
+small {
+    font-size: var(--text-sm);
+    color: var(--theme-text-muted);
+}
+
+/* 강조 */
+strong {
+    font-weight: var(--font-bold);
+}
+
+em {
+    font-style: italic;
+}
+
+/* 구분선 */
+hr {
+    margin: var(--space-8) 0;
+    border: 0;
+    border-top: 1px solid var(--theme-border);
+}
+
+/* 유틸리티 클래스 */
+.text-xs {
+    font-size: var(--text-xs);
+}
+
+.text-sm {
+    font-size: var(--text-sm);
+}
+
+.text-base {
+    font-size: var(--text-base);
+}
+
+.text-lg {
+    font-size: var(--text-lg);
+}
+
+.text-xl {
+    font-size: var(--text-xl);
+}
+
+.text-2xl {
+    font-size: var(--text-2xl);
+}
+
+.text-3xl {
+    font-size: var(--text-3xl);
+}
+
+.text-4xl {
+    font-size: var(--text-4xl);
+}
+
+.text-5xl {
+    font-size: var(--text-5xl);
+}
+
+.font-thin {
+    font-weight: var(--font-thin);
+}
+
+.font-light {
+    font-weight: var(--font-light);
+}
+
+.font-normal {
+    font-weight: var(--font-normal);
+}
+
+.font-medium {
+    font-weight: var(--font-medium);
+}
+
+.font-semibold {
+    font-weight: var(--font-semibold);
+}
+
+.font-bold {
+    font-weight: var(--font-bold);
+}
+
+.font-black {
+    font-weight: var(--font-black);
+}
+
+.text-primary {
+    color: var(--color-primary);
+}
+
+.text-secondary {
+    color: var(--color-secondary);
+}
+
+.text-success {
+    color: var(--color-success);
+}
+
+.text-danger {
+    color: var(--color-danger);
+}
+
+.text-warning {
+    color: var(--color-warning);
+}
+
+.text-info {
+    color: var(--color-info);
+}
+
+.text-muted {
+    color: var(--theme-text-muted);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.leading-none {
+    line-height: 1;
+}
+
+.leading-tight {
+    line-height: 1.25;
+}
+
+.leading-normal {
+    line-height: 1.5;
+}
+
+.leading-loose {
+    line-height: 2;
+}
+
+.tracking-tight {
+    letter-spacing: -0.025em;
+}
+
+.tracking-normal {
+    letter-spacing: 0;
+}
+
+.tracking-wide {
+    letter-spacing: 0.025em;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.lowercase {
+    text-transform: lowercase;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+.normal-case {
+    text-transform: none;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.line-through {
+    text-decoration: line-through;
+}
+
+.no-underline {
+    text-decoration: none;
+}
+
+.truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.break-words {
+    word-wrap: break-word;
+}
+
+.break-all {
+    word-break: break-all;
+}
+
+.select-none {
+    user-select: none;
+}
+
+.select-text {
+    user-select: text;
+}
+
+.select-all {
+    user-select: all;
+}
+
+/* 반응형 타이포그래피 */
+@media (max-width: 640px) {
+    html {
+        font-size: 14px;
+    }
+    
+    h1 {
+        font-size: var(--text-4xl);
+    }
+    
+    h2 {
+        font-size: var(--text-3xl);
+    }
+    
+    h3 {
+        font-size: var(--text-2xl);
+    }
+    
+    h4 {
+        font-size: var(--text-xl);
+    }
+    
+    h5 {
+        font-size: var(--text-lg);
+    }
+    
+    h6 {
+        font-size: var(--text-base);
+    }
+} 

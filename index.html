@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="보험 상담 및 가입 서비스 - 맞춤형 보험 상품 추천">
+    <meta name="theme-color" content="#007bff">
+    
+    <!-- 캐시 방지 -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, max-age=0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    
+    <!-- 파비콘 -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet" crossorigin="anonymous">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous">
+    
+    <!-- 기본 CSS -->
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/components/bottom-nav.css">
+    <link rel="stylesheet" href="./css/pages/home.css">
+    <link rel="stylesheet" href="./css/chatbot.css">
+    
+    <!-- 페이지별 CSS는 동적으로 로드 -->
+    <script type="module" src="./js/main.js"></script>
+
+    <title>보험사이트 - 맞춤형 보험 상품 추천</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 메인 컨텐츠 -->
+        <main id="main-content" class="page-content">
+            <!-- 히어로 섹션 -->
+            <section class="hero-section">
+                <h1 class="hero-title">나와 가족을 위한<br>맞춤형 보험 설계</h1>
+                <p class="hero-description">
+                    전문 보험 설계사와 함께<br>나에게 꼭 맞는 보험을 찾아보세요
+                </p>
+                <div class="hero-actions">
+                    <a href="pages/products.html" class="primary-button">보험상품 살펴보기</a>
+                    <a href="pages/consultation.html" class="secondary-button">무료 상담 신청</a>
+                </div>
+            </section>
+
+            <!-- 주요 보험 상품 섹션 -->
+            <section class="insurance-types">
+                <h2 class="section-title">주요 보험 상품</h2>
+                <div class="insurance-grid">
+                    <div class="insurance-card">
+                        <i class="fas fa-heartbeat feature-icon"></i>
+                        <h3>건강보험</h3>
+                        <p>질병과 상해에 대한<br>종합적인 보장을 제공합니다</p>
+                        <a href="pages/products.html#health" class="card-link">자세히 보기</a>
+                    </div>
+                    <div class="insurance-card">
+                        <i class="fas fa-car feature-icon"></i>
+                        <h3>자동차보험</h3>
+                        <p>교통사고와 자동차 관련<br>다양한 위험을 보장합니다</p>
+                        <a href="pages/products.html#car" class="card-link">자세히 보기</a>
+                    </div>
+                    <div class="insurance-card">
+                        <i class="fas fa-home feature-icon"></i>
+                        <h3>화재보험</h3>
+                        <p>재산 피해와 자연재해에 대한<br>안전한 보장을 제공합니다</p>
+                        <a href="pages/products.html#fire" class="card-link">자세히 보기</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA 섹션 -->
+            <section class="cta-section">
+                <div class="cta-content">
+                    <h2>지금 바로 시작하세요</h2>
+                    <p>무료 상담으로 나에게 맞는 보험을 찾아보세요</p>
+                    <a href="pages/consultation.html" class="primary-button">무료 상담 신청하기</a>
+                </div>
+            </section>
+        </main>
+
+        <!-- 하단 네비게이션 -->
+        <nav class="bottom-nav">
+            <a href="index.html" class="bottom-nav-item active">
+                <i class="fas fa-home"></i>
+                <span>홈</span>
+            </a>
+            <a href="pages/products.html" class="bottom-nav-item">
+                <i class="fas fa-shield-alt"></i>
+                <span>보험상품</span>
+            </a>
+            <a href="pages/consultation.html" class="bottom-nav-item">
+                <i class="fas fa-calendar-check"></i>
+                <span>상담예약</span>
+            </a>
+            <a href="pages/faq.html" class="bottom-nav-item">
+                <i class="fas fa-question-circle"></i>
+                <span>FAQ</span>
+            </a>
+        </nav>
+
+        <!-- 챗봇 토글 버튼 -->
+        <button id="chatbot-toggle" class="floating-button chatbot-toggle" aria-label="챗봇 열기">
+            <i class="fas fa-comments"></i>
+        </button>
+
+        <!-- 모달 컨테이너 -->
+        <div id="modal-container"></div>
+
+        <!-- 알림 컨테이너 -->
+        <div id="toast-container"></div>
+    </div>
+
+    <!-- JavaScript 파일 -->
+    <script type="module">
+        // import { router } from './js/router.js'; // 삭제
+        // import { NavigationController } from './js/components/navigation.js'; // 삭제
+        
+        // 네비게이션 컨트롤러 초기화 (다중 페이지 구조에서는 불필요)
+        // window.navigationController = new NavigationController(); // 삭제
+    </script>
+    <script src="./js/chatbot.js"></script>
+</body>
+</html> 

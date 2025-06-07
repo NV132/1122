@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="전문 보험 설계사와 무료 상담을 예약하세요">
+    <meta name="theme-color" content="#007bff">
+    
+    <!-- 캐시 방지 -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, max-age=0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    
+    <!-- 파비콘 -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet" crossorigin="anonymous">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous">
+    
+    <!-- AOS 애니메이션 라이브러리 -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/components/bottom-nav.css">
+    <link rel="stylesheet" href="../css/pages/consultation.css">
+    <link rel="stylesheet" href="../css/chatbot.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <title>상담예약 - 프리미엄 보험 상담 서비스</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 메인 컨텐츠 -->
+        <main id="main-content" class="page-content">
+            <!-- 상담 헤더 -->
+            <section class="consultation-header" data-aos="fade-down">
+                <h1 class="header-title">프리미엄 보험 상담</h1>
+                <p class="header-description">전문 보험 설계사와 함께하는 맞춤형 상담 서비스</p>
+            </section>
+
+            <!-- 상담 안내 -->
+            <section class="consultation-info" data-aos="fade-up">
+                <div class="info-grid">
+                    <div class="info-card" data-aos="fade-up" data-aos-delay="100">
+                        <i class="fas fa-clock info-icon"></i>
+                        <h3>상담 시간</h3>
+                        <p>평일 09:00 - 18:00<br>주말 및 공휴일 휴무</p>
+                    </div>
+                    <div class="info-card" data-aos="fade-up" data-aos-delay="200">
+                        <i class="fas fa-phone-alt info-icon"></i>
+                        <h3>상담 방법</h3>
+                        <p>전화 상담<br>방문 상담</p>
+                    </div>
+                    <div class="info-card" data-aos="fade-up" data-aos-delay="300">
+                        <i class="fas fa-shield-alt info-icon"></i>
+                        <h3>상담 보장</h3>
+                        <p>비밀보장<br>무료 상담</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 상담 신청 폼 -->
+            <section class="consultation-form" data-aos="fade-up">
+                <h2 class="section-title">상담 신청하기</h2>
+                <form id="consultationForm" class="form-container">
+                    <div class="form-group" data-aos="fade-up" data-aos-delay="100">
+                        <label for="name">이름</label>
+                        <input type="text" id="name" name="name" required placeholder="홍길동">
+                    </div>
+                    <div class="form-group" data-aos="fade-up" data-aos-delay="200">
+                        <label for="phone">연락처</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="010-0000-0000">
+                    </div>
+                    <div class="form-group" data-aos="fade-up" data-aos-delay="300">
+                        <label for="email">이메일</label>
+                        <input type="email" id="email" name="email" required placeholder="example@email.com">
+                    </div>
+                    <div class="form-group" data-aos="fade-up" data-aos-delay="400">
+                        <label for="consultationType">상담 유형</label>
+                        <select id="consultationType" name="consultationType" required>
+                            <option value="">상담 유형을 선택하세요</option>
+                            <option value="life">프리미엄 생명보험</option>
+                            <option value="health">프리미엄 건강보험</option>
+                            <option value="car">프리미엄 자동차보험</option>
+                            <option value="property">프리미엄 재물보험</option>
+                            <option value="other">기타</option>
+                        </select>
+                    </div>
+                    <div class="form-group" data-aos="fade-up" data-aos-delay="500">
+                        <label for="message">상담 내용</label>
+                        <textarea id="message" name="message" rows="4" placeholder="상담하고 싶은 내용을 간단히 작성해주세요"></textarea>
+                    </div>
+                    <div class="form-group" data-aos="fade-up" data-aos-delay="600">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="privacy" required>
+                            <span>개인정보 수집 및 이용에 동의합니다</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="submit-button" data-aos="fade-up" data-aos-delay="700">상담 신청하기</button>
+                </form>
+            </section>
+        </main>
+
+        <!-- 하단 네비게이션 -->
+        <nav class="bottom-nav">
+            <a href="../index.html" class="bottom-nav-item">
+                <i class="fas fa-home"></i>
+                <span>홈</span>
+            </a>
+            <a href="products.html" class="bottom-nav-item">
+                <i class="fas fa-shield-alt"></i>
+                <span>보험상품</span>
+            </a>
+            <a href="consultation.html" class="bottom-nav-item active">
+                <i class="fas fa-calendar-check"></i>
+                <span>상담예약</span>
+            </a>
+            <a href="faq.html" class="bottom-nav-item">
+                <i class="fas fa-question-circle"></i>
+                <span>FAQ</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- 알림 모달 -->
+    <div id="notification-modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div class="modal-body">
+                <div class="notification-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3 class="notification-title">상담 신청이 완료되었습니다</h3>
+                <p class="notification-message">빠른 시일 내에 연락드리겠습니다.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script type="module" src="../js/main.js"></script>
+    <script type="module">
+        window.addEventListener('DOMContentLoaded', () => {
+            // AOS 초기화
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 100
+            });
+
+            // 전화번호 자동 하이픈 추가
+            const phoneInput = document.getElementById('phone');
+            phoneInput.addEventListener('input', (e) => {
+                let value = e.target.value.replace(/[^0-9]/g, '');
+                if (value.length > 3 && value.length <= 7) {
+                    value = value.replace(/(\d{3})(\d{0,4})/, '$1-$2');
+                } else if (value.length > 7) {
+                    value = value.replace(/(\d{3})(\d{4})(\d{0,4})/, '$1-$2-$3');
+                }
+                e.target.value = value;
+            });
+
+            // 모달 관련 요소
+            const modal = document.getElementById('notification-modal');
+            const closeButton = modal.querySelector('.modal-close');
+
+            // 모달 닫기
+            closeButton.addEventListener('click', () => {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+
+            // 모달 외부 클릭 시 닫기
+            window.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            // 폼 제출 처리
+            const form = document.getElementById('consultationForm');
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const submitButton = form.querySelector('.submit-button');
+                submitButton.disabled = true;
+                submitButton.textContent = '처리중...';
+
+                try {
+                    // 여기에 실제 폼 제출 로직 추가
+                    await new Promise(resolve => setTimeout(resolve, 1000)); // 임시 딜레이
+                    
+                    // 모달 표시
+                    modal.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
+                    
+                    // 폼 초기화
+                    form.reset();
+                } catch (error) {
+                    alert('상담 신청 중 오류가 발생했습니다. 다시 시도해주세요.');
+                } finally {
+                    submitButton.disabled = false;
+                    submitButton.textContent = '상담 신청하기';
+                }
+            });
+
+            // URL 파라미터에서 상품 정보 가져오기
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('product');
+            if (productId) {
+                const consultationType = document.getElementById('consultationType');
+                const productMap = {
+                    'life-premium': 'life',
+                    'health-premium': 'health',
+                    'car-premium': 'car',
+                    'property-premium': 'property'
+                };
+                if (productMap[productId]) {
+                    consultationType.value = productMap[productId];
+                }
+            }
+        });
+    </script>
+    <script src="../js/chatbot.js"></script>
+</body>
+</html> 
