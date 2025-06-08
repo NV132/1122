@@ -33,7 +33,7 @@
     top: 0;
     right: 0;
     width: 100%;
-    height: calc(100vh - 95px); /* quick-form(45px) + chatbot-input(50px) */
+    height: 100vh; /* 전체 화면 사용 */
     background: #fff;
     z-index: 999;
     display: none; /* 기본적으로 숨김 */
@@ -44,6 +44,10 @@
 
 .chatbot-container.slide-in {
     display: flex; /* slide-in 클래스 추가 시 보임 */
+}
+
+.chatbot-container.slide-in ~ .chatbot-toggle {
+    display: none; /* 챗봇 창 열릴 때 토글 버튼 숨김 */
 }
 
 .chatbot-container.slide-out {
@@ -375,7 +379,7 @@
     }
 
     .chatbot-container {
-        height: calc(100vh - 95px); /* quick-form(45px) + chatbot-input(50px) */
+        height: 100vh; /* 전체 화면 사용 */
     }
 
     .chatbot-header {
