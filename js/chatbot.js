@@ -76,11 +76,12 @@ function initChatbot() {
         btn.addEventListener('click', () => handleQuickFormResponse(btn.dataset.type));
     });
 
-    // 상세보기 버튼 클릭 이벤트 (디버깅용)
+    // 상세보기 버튼 클릭 이벤트
     chatbotContainer.addEventListener('click', (e) => {
         if (e.target.classList.contains('action-button')) {
             const href = e.target.getAttribute('href');
             console.log(`Navigating to: ${href}`);
+            window.location.assign(href); // 강제 페이지 이동
         }
     });
 
@@ -263,7 +264,7 @@ function showProductDetail(type) {
                         <li><i class="fas fa-check"></i> 특약 가입 가능</li>
                     </ul>
                     <div class="action-buttons">
-                        <a href="./products.html" class="action-button">상세보기</a>
+                        <a href="/pages/products.html" class="action-button">상세보기</a>
                     </div>
                 </div>
             `;
@@ -279,7 +280,7 @@ function showProductDetail(type) {
                         <li><i class="fas fa-check"></i> 자차손해 보장</li>
                     </ul>
                     <div class="action-buttons">
-                        <a href="./products.html" class="action-button">상세보기</a>
+                        <a href="/pages/products.html" class="action-button">상세보기</a>
                     </div>
                 </div>
             `;
@@ -295,7 +296,7 @@ function showProductDetail(type) {
                         <li><i class="fas fa-check"></i> 임시 거주비 지원</li>
                     </ul>
                     <div class="action-buttons">
-                        <a href="./products.html" class="action-button">상세보기</a>
+                        <a href="/pages/products.html" class="action-button">상세보기</a>
                     </div>
                 </div>
             `;
@@ -330,7 +331,7 @@ function showDetail(category, type) {
                         <li><i class="fas fa-check"></i> 맞춤형 보험료 산출</li>
                     </ul>
                     <div class="action-buttons">
-                        <a href="./calculator.html" class="action-button">상세보기</a>
+                        <a href="/pages/calculator.html" class="action-button">상세보기</a>
                     </div>
                 </div>
             `;
@@ -356,7 +357,7 @@ function showDetail(category, type) {
                         <li><i class="fas fa-check"></i> 온라인/오프라인 상담 가능</li>
                     </ul>
                     <div class="action-buttons">
-                        <a href="./consultation.html" class="action-button">상세보기</a>
+                        <a href="/pages/consultation.html" class="action-button">상세보기</a>
                     </div>
                 </div>
             `;
@@ -382,7 +383,7 @@ function showDetail(category, type) {
                         <li><i class="fas fa-check"></i> 다양한 보험 관련 정보</li>
                     </ul>
                     <div class="action-buttons">
-                        <a href="./faq.html" class="action-button">상세보기</a>
+                        <a href="/pages/faq.html" class="action-button">상세보기</a>
                     </div>
                 </div>
             `;
