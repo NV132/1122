@@ -3,8 +3,8 @@
 /* 토글 버튼 */
 .chatbot-toggle {
     position: fixed;
-    bottom: 180px; /* 하단 탭(70px) + quick-form(45px) + chatbot-input(50px) + 여유 */
-    right: 30px;
+    bottom: 150px; /* 하단 탭(60px~70px) + quick-form(45px) + chatbot-input(50px) + 여유 */
+    right: 15px;
     width: 45px;
     height: 45px;
     border-radius: 50%;
@@ -32,7 +32,7 @@
     top: 0;
     right: 0;
     width: 100%;
-    height: calc(100vh - 165px); /* 하단 탭(70px) + quick-form(45px) + chatbot-input(50px) */
+    height: calc(100vh - env(safe-area-inset-bottom, 70px) - 95px); /* 하단 안전 영역 + quick-form(45px) + chatbot-input(50px) */
     background: #fff;
     z-index: 999;
     display: flex;
@@ -104,7 +104,7 @@
 .messages-container {
     flex: 1;
     padding: 15px;
-    padding-bottom: 180px; /* 하단 탭(70px) + quick-form(45px) + chatbot-input(50px) + 15px 여유 */
+    padding-bottom: 115px; /* quick-form(45px) + chatbot-input(50px) + 20px 여유 */
     overflow-y: auto;
     background: #f5f7fa;
     -webkit-overflow-scrolling: touch;
@@ -139,9 +139,17 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
+/* 하단 섹션 (퀵 폼과 입력창) */
+.chatbot-bottom {
+    position: relative;
+    width: 100%;
+    padding: 10px 0;
+    background: #fff;
+}
+
 /* 퀵 폼 (하단 탭) */
 .quick-form {
-    position: fixed;
+    position: absolute;
     bottom: 50px; /* chatbot-input 높이(50px) 위 */
     left: 0;
     width: 100%;
@@ -154,7 +162,7 @@
     scrollbar-width: none;
     -ms-overflow-style: none;
     -webkit-overflow-scrolling: touch;
-    z-index: 1002; /* 컨테이너(999)와 입력창(1001) 위 */
+    z-index: 1002;
     height: 45px;
 }
 
@@ -189,7 +197,7 @@
 
 /* 입력 영역 */
 .chatbot-input {
-    position: fixed;
+    position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -198,7 +206,7 @@
     border-top: 1px solid #eee;
     display: flex;
     gap: 8px;
-    z-index: 1001; /* 컨테이너(999) 위 */
+    z-index: 1001;
     height: 50px;
 }
 
@@ -357,7 +365,7 @@
     }
 
     .chatbot-container {
-        height: calc(100vh - 165px); /* 하단 탭(70px) + quick-form(45px) + chatbot-input(50px) */
+        height: calc(100vh - env(safe-area-inset-bottom, 70px) - 95px); /* 하단 안전 영역 + quick-form(45px) + chatbot-input(50px) */
     }
 
     .chatbot-header {
@@ -372,7 +380,7 @@
     .messages-container {
         height: 100%;
         padding: 10px;
-        padding-bottom: 180px; /* 하단 탭(70px) + quick-form(45px) + chatbot-input(50px) + 15px 여유 */
+        padding-bottom: 115px; /* quick-form(45px) + chatbot-input(50px) + 20px 여유 */
     }
 
     .message-bubble {
