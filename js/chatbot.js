@@ -10,15 +10,17 @@ function createChatbotHTML() {
         <button class="chatbot-close"><i class="fas fa-times"></i></button>
     </div>
     <div class="messages-container"></div>
-    <div class="quick-form">
-        <button class="quick-form-btn" data-type="products"><i class="fas fa-shield-alt"></i><span>보험상품 안내</span></button>
-        <button class="quick-form-btn" data-type="calculator"><i class="fas fa-calculator"></i><span>보험료 계산</span></button>
-        <button class="quick-form-btn" data-type="consultation"><i class="fas fa-headset"></i><span>상담 예약</span></button>
-        <button class="quick-form-btn" data-type="faq"><i class="fas fa-question-circle"></i><span>자주 묻는 질문</span></button>
-    </div>
-    <div class="chatbot-input">
-        <input type="text" placeholder="메시지를 입력하세요...">
-        <button class="send-btn"><i class="fas fa-paper-plane"></i></button>
+    <div class="chatbot-bottom">
+        <div class="quick-form">
+            <button class="quick-form-btn" data-type="products"><i class="fas fa-shield-alt"></i><span>보험상품 안내</span></button>
+            <button class="quick-form-btn" data-type="calculator"><i class="fas fa-calculator"></i><span>보험료 계산</span></button>
+            <button class="quick-form-btn" data-type="consultation"><i class="fas fa-headset"></i><span>상담 예약</span></button>
+            <button class="quick-form-btn" data-type="faq"><i class="fas fa-question-circle"></i><span>자주 묻는 질문</span></button>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" placeholder="메시지를 입력하세요...">
+            <button class="send-btn"><i class="fas fa-paper-plane"></i></button>
+        </div>
     </div>
     `;
 }
@@ -46,6 +48,7 @@ function initChatbot() {
         chatbotContainer.classList.add('slide-in');
         chatbotContainer.classList.remove('slide-out');
     });
+
     // 닫기 버튼 이벤트
     chatbotContainer.querySelector('.chatbot-close').addEventListener('click', () => {
         chatbotContainer.classList.add('slide-out');
@@ -81,7 +84,7 @@ function initChatbot() {
         if (e.target.classList.contains('action-button')) {
             const href = e.target.getAttribute('href');
             console.log(`Navigating to: ${href}`);
-            window.location.assign(href); // 강제 페이지 이동
+            window.location.assign(href);
         }
     });
 
