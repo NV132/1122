@@ -76,6 +76,14 @@ function initChatbot() {
         btn.addEventListener('click', () => handleQuickFormResponse(btn.dataset.type));
     });
 
+    // 상세보기 버튼 클릭 이벤트 (디버깅용)
+    chatbotContainer.addEventListener('click', (e) => {
+        if (e.target.classList.contains('action-button')) {
+            const href = e.target.getAttribute('href');
+            console.log(`Navigating to: ${href}`);
+        }
+    });
+
     // 초기 인사 메시지
     setTimeout(() => {
         addMessage('안녕하세요! AIMQOD 보험 상담 서비스입니다. 어떤 도움이 필요하신가요?', 'bot');
@@ -255,7 +263,7 @@ function showProductDetail(type) {
                         <li><i class="fas fa-check"></i> 특약 가입 가능</li>
                     </ul>
                     <div class="action-buttons">
-                        <a href="/products.html" class="action-button">상세보기</a>
+                        <a href="./products.html" class="action-button">상세보기</a>
                     </div>
                 </div>
             `;
@@ -271,7 +279,7 @@ function showProductDetail(type) {
                         <li><i class="fas fa-check"></i> 자차손해 보장</li>
                     </ul>
                     <div class="action-buttons">
-                        <a href="/products.html" class="action-button">상세보기</a>
+                        <a href="./products.html" class="action-button">상세보기</a>
                     </div>
                 </div>
             `;
@@ -287,7 +295,7 @@ function showProductDetail(type) {
                         <li><i class="fas fa-check"></i> 임시 거주비 지원</li>
                     </ul>
                     <div class="action-buttons">
-                        <a href="/products.html" class="action-button">상세보기</a>
+                        <a href="./products.html" class="action-button">상세보기</a>
                     </div>
                 </div>
             `;
@@ -322,7 +330,7 @@ function showDetail(category, type) {
                         <li><i class="fas fa-check"></i> 맞춤형 보험료 산출</li>
                     </ul>
                     <div class="action-buttons">
-                        <a href="/calculator.html" class="action-button">상세보기</a>
+                        <a href="./calculator.html" class="action-button">상세보기</a>
                     </div>
                 </div>
             `;
@@ -348,7 +356,7 @@ function showDetail(category, type) {
                         <li><i class="fas fa-check"></i> 온라인/오프라인 상담 가능</li>
                     </ul>
                     <div class="action-buttons">
-                        <a href="/consultation.html" class="action-button">상세보기</a>
+                        <a href="./consultation.html" class="action-button">상세보기</a>
                     </div>
                 </div>
             `;
@@ -374,7 +382,7 @@ function showDetail(category, type) {
                         <li><i class="fas fa-check"></i> 다양한 보험 관련 정보</li>
                     </ul>
                     <div class="action-buttons">
-                        <a href="/faq.html" class="action-button">상세보기</a>
+                        <a href="./faq.html" class="action-button">상세보기</a>
                     </div>
                 </div>
             `;
@@ -384,5 +392,5 @@ function showDetail(category, type) {
     addMessage(content);
 }
 
-// 페이지 로드 시 초기화 (스크롤 로직 제거)
+// 페이지 로드 시 초기화
 document.addEventListener('DOMContentLoaded', initChatbot);
