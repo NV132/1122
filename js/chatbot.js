@@ -255,7 +255,7 @@ function showProductDetail(type) {
                         <li><i class="fas fa-check"></i> 특약 가입 가능</li>
                     </ul>
                     <div class="action-buttons">
-                        <a href="index.html?section=health" class="action-button">상세보기</a>
+                        <a href="/index.html?section=health" class="action-button">상세보기</a>
                     </div>
                 </div>
             `;
@@ -271,7 +271,7 @@ function showProductDetail(type) {
                         <li><i class="fas fa-check"></i> 자차손해 보장</li>
                     </ul>
                     <div class="action-buttons">
-                        <a href="index.html?section=car" class="action-button">상세보기</a>
+                        <a href="/index.html?section=car" class="action-button">상세보기</a>
                     </div>
                 </div>
             `;
@@ -287,7 +287,7 @@ function showProductDetail(type) {
                         <li><i class="fas fa-check"></i> 임시 거주비 지원</li>
                     </ul>
                     <div class="action-buttons">
-                        <a href="index.html?section=fire" class="action-button">상세보기</a>
+                        <a href="/index.html?section=fire" class="action-button">상세보기</a>
                     </div>
                 </div>
             `;
@@ -322,7 +322,7 @@ function showDetail(category, type) {
                         <li><i class="fas fa-check"></i> 맞춤형 보험료 산출</li>
                     </ul>
                     <div class="action-buttons">
-                        <a href="calculator.html" class="action-button">상세보기</a>
+                        <a href="/calculator.html" class="action-button">상세보기</a>
                     </div>
                 </div>
             `;
@@ -348,7 +348,7 @@ function showDetail(category, type) {
                         <li><i class="fas fa-check"></i> 온라인/오프라인 상담 가능</li>
                     </ul>
                     <div class="action-buttons">
-                        <a href="consultation.html" class="action-button">상세보기</a>
+                        <a href="/consultation.html" class="action-button">상세보기</a>
                     </div>
                 </div>
             `;
@@ -374,7 +374,7 @@ function showDetail(category, type) {
                         <li><i class="fas fa-check"></i> 다양한 보험 관련 정보</li>
                     </ul>
                     <div class="action-buttons">
-                        <a href="faq.html" class="action-button">상세보기</a>
+                        <a href="/faq.html" class="action-button">상세보기</a>
                     </div>
                 </div>
             `;
@@ -422,7 +422,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         console.log('Scrolling to target');
                         setTimeout(() => {
                             parentContainer.scrollIntoView({ behavior: 'smooth' });
-                        }, 300); // 지연 시간 증가
+                        }, 300);
                     } else {
                         console.error('Parent container not found for target item');
                     }
