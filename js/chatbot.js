@@ -258,7 +258,7 @@ function showProductDetail(type) {
                         <li><i class="fas fa-check"></i> 특약 가입 가능</li>
                     </ul>
                     <div class="action-buttons">
-                        <a href="products.html" class="action-button">상세보기</a>
+                        <a href="pages/products.html" class="action-button">상세보기</a>
                     </div>
                 </div>
             `;
@@ -274,7 +274,7 @@ function showProductDetail(type) {
                         <li><i class="fas fa-check"></i> 특약 가입 가능</li>
                     </ul>
                     <div class="action-buttons">
-                        <a href="products.html" class="action-button">상세보기</a>
+                        <a href="pages/products.html" class="action-button">상세보기</a>
                     </div>
                 </div>
             `;
@@ -290,7 +290,7 @@ function showProductDetail(type) {
                         <li><i class="fas fa-check"></i> 자차손해 보장</li>
                     </ul>
                     <div class="action-buttons">
-                        <a href="products.html" class="action-button">상세보기</a>
+                        <a href="pages/products.html" class="action-button">상세보기</a>
                     </div>
                 </div>
             `;
