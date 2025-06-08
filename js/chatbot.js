@@ -255,7 +255,7 @@ function showProductDetail(type) {
                         <li><i class="fas fa-check"></i> 특약 가입 가능</li>
                     </ul>
                     <div class="action-buttons">
-                        <a href="/index.html?section=health" class="action-button">상세보기</a>
+                        <a href="/products.html" class="action-button">상세보기</a>
                     </div>
                 </div>
             `;
@@ -271,7 +271,7 @@ function showProductDetail(type) {
                         <li><i class="fas fa-check"></i> 자차손해 보장</li>
                     </ul>
                     <div class="action-buttons">
-                        <a href="/index.html?section=car" class="action-button">상세보기</a>
+                        <a href="/products.html" class="action-button">상세보기</a>
                     </div>
                 </div>
             `;
@@ -287,7 +287,7 @@ function showProductDetail(type) {
                         <li><i class="fas fa-check"></i> 임시 거주비 지원</li>
                     </ul>
                     <div class="action-buttons">
-                        <a href="/index.html?section=fire" class="action-button">상세보기</a>
+                        <a href="/products.html" class="action-button">상세보기</a>
                     </div>
                 </div>
             `;
@@ -384,58 +384,5 @@ function showDetail(category, type) {
     addMessage(content);
 }
 
-// 페이지 로드 시 섹션 스크롤 처리 (보험상품 안내용)
-document.addEventListener('DOMContentLoaded', () => {
-    initChatbot();
-    
-    // 쿼리 파라미터 확인
-    const urlParams = new URLSearchParams(window.location.search);
-    const section = urlParams.get('section');
-    
-    if (section) {
-        console.log(`Section parameter detected: ${section}`);
-        // 보험 항목 찾아 스크롤
-        const sectionMap = {
-            health: '건강보험',
-            car: '자동차보험',
-            fire: '화재보험'
-        };
-        
-        const targetText = sectionMap[section];
-        console.log(`Target text to find: ${targetText}`);
-        
-        if (targetText) {
-            // 주요 보험 상품 섹션 내 항목 탐색
-            const grid = document.querySelector('.insurance-grid');
-            if (grid) {
-                console.log('Found .insurance-grid');
-                const items = grid.querySelectorAll('h3');
-                console.log(`Found ${items.length} h3 elements`);
-                
-                const targetItem = Array.from(items).find(item => item.textContent.trim() === targetText);
-                
-                if (targetItem) {
-                    console.log(`Found target item: ${targetText}`);
-                    // 부모 컨테이너로 스크롤
-                    const parentContainer = targetItem.closest('div');
-                    if (parentContainer) {
-                        console.log('Scrolling to target');
-                        setTimeout(() => {
-                            parentContainer.scrollIntoView({ behavior: 'smooth' });
-                        }, 300);
-                    } else {
-                        console.error('Parent container not found for target item');
-                    }
-                } else {
-                    console.error(`Target item not found for text: ${targetText}`);
-                }
-            } else {
-                console.error('.insurance-grid not found');
-            }
-        } else {
-            console.error('No target text mapped for section:', section);
-        }
-    } else {
-        console.log('No section parameter in URL');
-    }
-});
+// 페이지 로드 시 초기화 (스크롤 로직 제거)
+document.addEventListener('DOMContentLoaded', initChatbot);
