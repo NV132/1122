@@ -33,7 +33,7 @@
     top: 0;
     right: 0;
     width: 100%;
-    height: 100vh; /* 전체 화면 사용 */
+    height: calc(100vh - 165px); /* 하단 탭(70px) + quick-form(45px) + chatbot-input(50px) */
     background: #fff;
     z-index: 999;
     display: none; /* 기본적으로 숨김 */
@@ -117,53 +117,16 @@
 .messages-container {
     flex: 1;
     padding: 15px;
-    padding-bottom: 110px; /* quick-form(45px) + chatbot-input(50px) + 15px 여유 */
+    padding-bottom: 0; /* 하단 요소가 외부에 있으므로 패딩 제거 */
     overflow-y: auto;
     background: #f5f7fa;
     -webkit-overflow-scrolling: touch;
     height: calc(100% - 50px); /* 헤더(50px) 제외 */
 }
 
-.message-bubble {
-    max-width: 80%;
-    margin-bottom: 15px;
-    padding: 12px 16px;
-    border-radius: 12px;
-    animation: fadeIn 0.3s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.user-message {
-    background: #2196F3;
-    color: white;
-    margin-left: auto;
-    border-bottom-right-radius: 4px;
-}
-
-.bot-message {
-    background: white;
-    color: #333;
-    margin-right: auto;
-    border-bottom-left-radius: 4px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
-/* 하단 섹션 */
-.chatbot-bottom {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    padding: 10px 0;
-    background: #fff;
-}
-
 /* 퀵 폼 (하단 탭) */
 .quick-form {
-    position: absolute;
+    position: fixed;
     bottom: 50px; /* chatbot-input(50px) 위 */
     left: 0;
     width: 100%;
@@ -211,7 +174,7 @@
 
 /* 입력 영역 */
 .chatbot-input {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -250,6 +213,34 @@
 
 .send-btn:hover {
     background: #1976D2;
+}
+
+.message-bubble {
+    max-width: 80%;
+    margin-bottom: 15px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.user-message {
+    background: #2196F3;
+    color: white;
+    margin-left: auto;
+    border-bottom-right-radius: 4px;
+}
+
+.bot-message {
+    background: white;
+    color: #333;
+    margin-right: auto;
+    border-bottom-left-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 /* 탭 섹션 (카드/리스트) */
@@ -379,7 +370,7 @@
     }
 
     .chatbot-container {
-        height: 100vh; /* 전체 화면 사용 */
+        height: calc(100vh - 165px); /* 하단 탭(70px) + quick-form(45px) + chatbot-input(50px) */
     }
 
     .chatbot-header {
@@ -394,7 +385,7 @@
     .messages-container {
         height: calc(100% - 50px); /* 헤더(50px) 제외 */
         padding: 10px;
-        padding-bottom: 110px; /* quick-form(45px) + chatbot-input(50px) + 15px 여유 */
+        padding-bottom: 0; /* 하단 요소가 외부에 있으므로 패딩 제거 */
     }
 
     .message-bubble {
@@ -490,4 +481,3 @@
         padding: 8px 16px;
         font-size: 13px;
     }
-}
