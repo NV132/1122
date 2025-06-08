@@ -92,8 +92,6 @@ function addMessage(text, type) {
 }
 
 function handleQuickFormResponse(category) {
-    const messagesContainer = document.querySelector('.messages-container');
-    
     switch(category) {
         case 'products':
             addMessage(`
@@ -108,16 +106,6 @@ function handleQuickFormResponse(category) {
                         </div>
                         <i class="fas fa-chevron-right section-arrow"></i>
                     </div>
-                    <div class="tab-section" onclick="showProductDetail('life')">
-                        <div class="section-icon">
-                            <i class="fas fa-user-shield"></i>
-                        </div>
-                        <div class="section-content">
-                            <h5>생명보험</h5>
-                            <p>가족의 미래를 위한 보장</p>
-                        </div>
-                        <i class="fas fa-chevron-right section-arrow"></i>
-                    </div>
                     <div class="tab-section" onclick="showProductDetail('car')">
                         <div class="section-icon">
                             <i class="fas fa-car"></i>
@@ -128,13 +116,23 @@ function handleQuickFormResponse(category) {
                         </div>
                         <i class="fas fa-chevron-right section-arrow"></i>
                     </div>
+                    <div class="tab-section" onclick="showProductDetail('fire')">
+                        <div class="section-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <div class="section-content">
+                            <h5>화재보험</h5>
+                            <p>재산 피해와 자연재해 보장</p>
+                        </div>
+                        <i class="fas fa-chevron-right section-arrow"></i>
+                    </div>
                 </div>
             `);
             break;
         case 'calculator':
             addMessage(`
                 <div class="tab-sections">
-                    <div class="tab-section" onclick="window.location.href='calculator.html'">
+                    <div class="tab-section" onclick="showDetail('calculator', 'health')">
                         <div class="section-icon">
                             <i class="fas fa-calculator"></i>
                         </div>
@@ -144,7 +142,7 @@ function handleQuickFormResponse(category) {
                         </div>
                         <i class="fas fa-chevron-right section-arrow"></i>
                     </div>
-                    <div class="tab-section" onclick="window.location.href='calculator.html'">
+                    <div class="tab-section" onclick="showDetail('calculator', 'life')">
                         <div class="section-icon">
                             <i class="fas fa-calculator"></i>
                         </div>
@@ -154,7 +152,7 @@ function handleQuickFormResponse(category) {
                         </div>
                         <i class="fas fa-chevron-right section-arrow"></i>
                     </div>
-                    <div class="tab-section" onclick="window.location.href='calculator.html'">
+                    <div class="tab-section" onclick="showDetail('calculator', 'car')">
                         <div class="section-icon">
                             <i class="fas fa-calculator"></i>
                         </div>
@@ -170,7 +168,7 @@ function handleQuickFormResponse(category) {
         case 'consultation':
             addMessage(`
                 <div class="tab-sections">
-                    <div class="tab-section" onclick="window.location.href='consultation.html'">
+                    <div class="tab-section" onclick="showDetail('consultation', 'health')">
                         <div class="section-icon">
                             <i class="fas fa-headset"></i>
                         </div>
@@ -180,7 +178,7 @@ function handleQuickFormResponse(category) {
                         </div>
                         <i class="fas fa-chevron-right section-arrow"></i>
                     </div>
-                    <div class="tab-section" onclick="window.location.href='consultation.html'">
+                    <div class="tab-section" onclick="showDetail('consultation', 'life')">
                         <div class="section-icon">
                             <i class="fas fa-headset"></i>
                         </div>
@@ -190,7 +188,7 @@ function handleQuickFormResponse(category) {
                         </div>
                         <i class="fas fa-chevron-right section-arrow"></i>
                     </div>
-                    <div class="tab-section" onclick="window.location.href='consultation.html'">
+                    <div class="tab-section" onclick="showDetail('consultation', 'car')">
                         <div class="section-icon">
                             <i class="fas fa-headset"></i>
                         </div>
@@ -206,7 +204,7 @@ function handleQuickFormResponse(category) {
         case 'faq':
             addMessage(`
                 <div class="tab-sections">
-                    <div class="tab-section" onclick="window.location.href='faq.html'">
+                    <div class="tab-section" onclick="showDetail('faq', 'health')">
                         <div class="section-icon">
                             <i class="fas fa-question-circle"></i>
                         </div>
@@ -216,7 +214,7 @@ function handleQuickFormResponse(category) {
                         </div>
                         <i class="fas fa-chevron-right section-arrow"></i>
                     </div>
-                    <div class="tab-section" onclick="window.location.href='faq.html'">
+                    <div class="tab-section" onclick="showDetail('faq', 'life')">
                         <div class="section-icon">
                             <i class="fas fa-question-circle"></i>
                         </div>
@@ -226,7 +224,7 @@ function handleQuickFormResponse(category) {
                         </div>
                         <i class="fas fa-chevron-right section-arrow"></i>
                     </div>
-                    <div class="tab-section" onclick="window.location.href='faq.html'">
+                    <div class="tab-section" onclick="showDetail('faq', 'car')">
                         <div class="section-icon">
                             <i class="fas fa-question-circle"></i>
                         </div>
@@ -243,7 +241,6 @@ function handleQuickFormResponse(category) {
 }
 
 function showProductDetail(type) {
-    const messagesContainer = document.querySelector('.messages-container');
     let content = '';
     
     switch(type) {
@@ -258,23 +255,7 @@ function showProductDetail(type) {
                         <li><i class="fas fa-check"></i> 특약 가입 가능</li>
                     </ul>
                     <div class="action-buttons">
-                        <a href="pages/products.html" class="action-button">상세보기</a>
-                    </div>
-                </div>
-            `;
-            break;
-        case 'life':
-            content = `
-                <div class="detail-content">
-                    <h4>생명보험 상세정보</h4>
-                    <p>가족의 미래를 위한 안정적인 보장을 제공하는 생명보험입니다.</p>
-                    <ul class="detail-list">
-                        <li><i class="fas fa-check"></i> 사망보험금 지급</li>
-                        <li><i class="fas fa-check"></i> 만기환급금 지급</li>
-                        <li><i class="fas fa-check"></i> 특약 가입 가능</li>
-                    </ul>
-                    <div class="action-buttons">
-                        <a href="pages/products.html" class="action-button">상세보기</a>
+                        <a href="index.html?section=health" class="action-button">상세보기</a>
                     </div>
                 </div>
             `;
@@ -290,7 +271,23 @@ function showProductDetail(type) {
                         <li><i class="fas fa-check"></i> 자차손해 보장</li>
                     </ul>
                     <div class="action-buttons">
-                        <a href="pages/products.html" class="action-button">상세보기</a>
+                        <a href="index.html?section=car" class="action-button">상세보기</a>
+                    </div>
+                </div>
+            `;
+            break;
+        case 'fire':
+            content = `
+                <div class="detail-content">
+                    <h4>화재보험 상세정보</h4>
+                    <p>재산 피해와 자연재해에 대한 보장을 제공하는 화재보험입니다.</p>
+                    <ul class="detail-list">
+                        <li><i class="fas fa-check"></i> 건물 및 가재도구 손해 보장</li>
+                        <li><i class="fas fa-check"></i> 화재로 인한 배상책임 보장</li>
+                        <li><i class="fas fa-check"></i> 임시 거주비 지원</li>
+                    </ul>
+                    <div class="action-buttons">
+                        <a href="index.html?section=fire" class="action-button">상세보기</a>
                     </div>
                 </div>
             `;
@@ -300,4 +297,123 @@ function showProductDetail(type) {
     addMessage(content);
 }
 
-document.addEventListener('DOMContentLoaded', initChatbot); 
+function showDetail(category, type) {
+    let content = '';
+    
+    switch(category) {
+        case 'calculator':
+            const calcTitles = {
+                health: '건강보험료 계산',
+                life: '생명보험료 계산',
+                car: '자동차보험료 계산'
+            };
+            const calcDetails = {
+                health: '건강보험료를 간편하게 계산하여 예상 비용을 확인할 수 있습니다.',
+                life: '생명보험료를 계산하여 가족의 미래를 대비할 수 있습니다.',
+                car: '자동차보험료를 계산하여 운전 중 발생할 수 있는 위험에 대비하세요.'
+            };
+            content = `
+                <div class="detail-content">
+                    <h4>${calcTitles[type]}</h4>
+                    <p>${calcDetails[type]}</p>
+                    <ul class="detail-list">
+                        <li><i class="fas fa-check"></i> 간편한 입력으로 빠른 계산</li>
+                        <li><i class="fas fa-check"></i> 다양한 보험 상품 비교</li>
+                        <li><i class="fas fa-check"></i> 맞춤형 보험료 산출</li>
+                    </ul>
+                    <div class="action-buttons">
+                        <a href="calculator.html" class="action-button">상세보기</a>
+                    </div>
+                </div>
+            `;
+            break;
+        case 'consultation':
+            const consultTitles = {
+                health: '건강보험 상담',
+                life: '생명보험 상담',
+                car: '자동차보험 상담'
+            };
+            const consultDetails = {
+                health: '전문 설계사와 함께 건강보험에 대한 맞춤 상담을 받으실 수 있습니다.',
+                life: '생명보험 전문 상담으로 가족의 미래를 안전하게 준비하세요.',
+                car: '자동차보험 상담을 통해 운전에 필요한 최적의 보험을 찾아드립니다.'
+            };
+            content = `
+                <div class="detail-content">
+                    <h4>${consultTitles[type]}</h4>
+                    <p>${consultDetails[type]}</p>
+                    <ul class="detail-list">
+                        <li><i class="fas fa-check"></i> 무료 상담 제공</li>
+                        <li><i class="fas fa-check"></i> 전문 설계사 1:1 상담</li>
+                        <li><i class="fas fa-check"></i> 온라인/오프라인 상담 가능</li>
+                    </ul>
+                    <div class="action-buttons">
+                        <a href="consultation.html" class="action-button">상세보기</a>
+                    </div>
+                </div>
+            `;
+            break;
+        case 'faq':
+            const faqTitles = {
+                health: '건강보험 FAQ',
+                life: '생명보험 FAQ',
+                car: '자동차보험 FAQ'
+            };
+            const faqDetails = {
+                health: '건강보험에 대한 자주 묻는 질문과 답변을 확인하세요.',
+                life: '생명보험 관련 궁금증을 해결할 수 있는 FAQ를 제공합니다.',
+                car: '자동차보험에 대한 궁금한 점을 FAQ를 통해 빠르게 확인하세요.'
+            };
+            content = `
+                <div class="detail-content">
+                    <h4>${faqTitles[type]}</h4>
+                    <p>${faqDetails[type]}</p>
+                    <ul class="detail-list">
+                        <li><i class="fas fa-check"></i> 자주 묻는 질문 모음</li>
+                        <li><i class="fas fa-check"></i> 빠르고 정확한 답변</li>
+                        <li><i class="fas fa-check"></i> 다양한 보험 관련 정보</li>
+                    </ul>
+                    <div class="action-buttons">
+                        <a href="faq.html" class="action-button">상세보기</a>
+                    </div>
+                </div>
+            `;
+            break;
+    }
+    
+    addMessage(content);
+}
+
+// 페이지 로드 시 섹션 스크롤 처리 (보험상품 안내용)
+document.addEventListener('DOMContentLoaded', () => {
+    initChatbot();
+    
+    // 쿼리 파라미터 확인
+    const urlParams = new URLSearchParams(window.location.search);
+    const section = urlParams.get('section');
+    
+    if (section && window.location.pathname.includes('index.html')) {
+        // 보험 항목 찾아 스크롤
+        const sectionMap = {
+            health: '건강보험',
+            car: '자동차보험',
+            fire: '화재보험'
+        };
+        
+        const targetText = sectionMap[section];
+        if (targetText) {
+            const items = document.querySelectorAll('h3');
+            const targetItem = Array.from(items).find(item => item.textContent.trim() === targetText);
+            
+            if (targetItem) {
+                // 부모 컨테이너로 스크롤
+                const parentContainer = targetItem.closest('div');
+                if (parentContainer) {
+                    setTimeout(() => {
+                        parentContainer.scrollIntoView({ behavior: 'smooth' });
+                    }, 100);
+                }
+            }
+        }
+    }
+});
