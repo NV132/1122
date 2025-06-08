@@ -3,7 +3,7 @@
 /* 토글 버튼 */
 .chatbot-toggle {
     position: fixed;
-    bottom: 150px; /* 하단 탭(60px~70px) + quick-form(45px) + chatbot-input(50px) + 여유 */
+    bottom: 125px; /* 하단 탭(70px) + quick-form(45px) + 10px 여유 */
     right: 15px;
     width: 45px;
     height: 45px;
@@ -32,7 +32,7 @@
     top: 0;
     right: 0;
     width: 100%;
-    height: calc(100vh - env(safe-area-inset-bottom, 70px) - 95px); /* 하단 안전 영역 + quick-form(45px) + chatbot-input(50px) */
+    height: 100vh; /* 전체 화면 사용 */
     background: #fff;
     z-index: 999;
     display: flex;
@@ -108,7 +108,41 @@
     overflow-y: auto;
     background: #f5f7fa;
     -webkit-overflow-scrolling: touch;
-    height: 100%;
+    height: calc(100% - 50px); /* 헤더(50px) 제외 */
+}
+
+/* 퀵 폼 (하단 탭) */
+.quick-form {
+    position: fixed;
+    bottom: 50px; /* chatbot-input(50px) 위 */
+    left: 0;
+    width: 100%;
+    padding: 10px 15px;
+    background: white;
+    border-top: 1px solid #eee;
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+    z-index: 1002; /* 컨테이너(999) 위 */
+    height: 45px;
+}
+
+/* 입력 영역 */
+.chatbot-input {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 15px;
+    background: white;
+    border-top: 1px solid #eee;
+    display: flex;
+    gap: 8px;
+    z-index: 1001; /* 컨테이너(999) 위 */
+    height: 50px;
 }
 
 .message-bubble {
@@ -139,33 +173,6 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-/* 하단 섹션 (퀵 폼과 입력창) */
-.chatbot-bottom {
-    position: relative;
-    width: 100%;
-    padding: 10px 0;
-    background: #fff;
-}
-
-/* 퀵 폼 (하단 탭) */
-.quick-form {
-    position: absolute;
-    bottom: 50px; /* chatbot-input 높이(50px) 위 */
-    left: 0;
-    width: 100%;
-    padding: 10px 15px;
-    background: white;
-    border-top: 1px solid #eee;
-    display: flex;
-    gap: 8px;
-    overflow-x: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    -webkit-overflow-scrolling: touch;
-    z-index: 1002;
-    height: 45px;
-}
-
 .quick-form::-webkit-scrollbar {
     display: none;
 }
@@ -193,21 +200,6 @@
 .quick-form-btn i {
     color: #2196F3;
     font-size: 1.2rem;
-}
-
-/* 입력 영역 */
-.chatbot-input {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 10px 15px;
-    background: white;
-    border-top: 1px solid #eee;
-    display: flex;
-    gap: 8px;
-    z-index: 1001;
-    height: 50px;
 }
 
 .chatbot-input input {
@@ -361,11 +353,11 @@
         width: 40px;
         height: 40px;
         right: 15px;
-        bottom: 165px; /* 하단 탭(70px) + quick-form(45px) + chatbot-input(50px) */
+        bottom: 125px; /* 하단 탭(70px) + quick-form(45px) */
     }
 
     .chatbot-container {
-        height: calc(100vh - env(safe-area-inset-bottom, 70px) - 95px); /* 하단 안전 영역 + quick-form(45px) + chatbot-input(50px) */
+        height: 100vh; /* 전체 화면 사용 */
     }
 
     .chatbot-header {
@@ -378,7 +370,7 @@
     }
 
     .messages-container {
-        height: 100%;
+        height: calc(100% - 50px); /* 헤더(50px) 제외 */
         padding: 10px;
         padding-bottom: 115px; /* quick-form(45px) + chatbot-input(50px) + 20px 여유 */
     }
