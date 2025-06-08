@@ -392,7 +392,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const section = urlParams.get('section');
     
-    if (section && window.location.pathname.includes('index.html')) {
+    if (section) {
+        console.log(`Section parameter detected: ${section}`);
         // 보험 항목 찾아 스크롤
         const sectionMap = {
             health: '건강보험',
@@ -401,19 +402,40 @@ document.addEventListener('DOMContentLoaded', () => {
         };
         
         const targetText = sectionMap[section];
+        console.log(`Target text to find: ${targetText}`);
+        
         if (targetText) {
-            const items = document.querySelectorAll('h3');
-            const targetItem = Array.from(items).find(item => item.textContent.trim() === targetText);
-            
-            if (targetItem) {
-                // 부모 컨테이너로 스크롤
-                const parentContainer = targetItem.closest('div');
-                if (parentContainer) {
-                    setTimeout(() => {
-                        parentContainer.scrollIntoView({ behavior: 'smooth' });
-                    }, 100);
+            // 주요 보험 상품 섹션 내 항목 탐색
+            const grid = document.querySelector('.insurance-grid');
+            if (grid) {
+                console.log('Found .insurance-grid');
+                const items = grid.querySelectorAll('h3');
+                console.log(`Found ${items.length} h3 elements`);
+                
+                const targetItem = Array.from(items).find(item => item.textContent.trim() === targetText);
+                
+                if (targetItem) {
+                    console.log(`Found target item: ${targetText}`);
+                    // 부모 컨테이너로 스크롤
+                    const parentContainer = targetItem.closest('div');
+                    if (parentContainer) {
+                        console.log('Scrolling to target');
+                        setTimeout(() => {
+                            parentContainer.scrollIntoView({ behavior: 'smooth' });
+                        }, 300); // 지연 시간 증가
+                    } else {
+                        console.error('Parent container not found for target item');
+                    }
+                } else {
+                    console.error(`Target item not found for text: ${targetText}`);
                 }
+            } else {
+                console.error('.insurance-grid not found');
             }
+        } else {
+            console.error('No target text mapped for section:', section);
         }
+    } else {
+        console.log('No section parameter in URL');
     }
 });
